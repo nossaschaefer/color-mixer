@@ -42,3 +42,13 @@ input#green {
 input#blue {
   accent-color: blue;
 }
+
+button {
+  border-radius: 3px;
+  margin-left: 15px;
+}
+
+#info-section {
+  display: flex;
+  align-items: center;
+}

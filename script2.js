@@ -4,14 +4,23 @@ let blue = document.querySelector("#blue");
 let main = document.querySelector("main");
 let valueDisplay = document.querySelector("#valueDisplay");
 let header = document.querySelector("header");
+let button = document.querySelector("button");
+
+button.addEventListener("click", updateColor);
+
+let rValue;
+let gValue;
+let bValue;
+function getRandomColor() {
+  // Generate random values between 0 and 255 for R, G, and B
+  rValue = Math.floor(Math.random() * 256); // Random number between 0-255 for Red
+  gValue = Math.floor(Math.random() * 256); // Random number between 0-255 for Green
+  bValue = Math.floor(Math.random() * 256); // Random number between 0-255 for Blue
+}
 
 // Function to update the color based on the input value
 function updateColor() {
-  // Get the current value of the range input
-  const rValue = red.value;
-  const gValue = green.value;
-  const bValue = blue.value;
-
+  getRandomColor();
   // Set the background color to reflect the RGB values
   main.style.background = `rgb(${rValue}, ${gValue}, ${bValue})`;
   header.style.background = `rgba(${rValue}, ${gValue}, ${bValue}, ${0.4})`;
@@ -40,5 +49,3 @@ function rgbToHex(r, g, b) {
     ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase(); // To return in uppercase format
   valueDisplay.textContent = hex;
 }
-
-// Add Get Random Color Button
